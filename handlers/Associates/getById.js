@@ -7,10 +7,10 @@ module.exports = async (req,res)=>{
     const associateId = req.params.id;
     const query =await queryHelper.getQuery('getAssociate',associateId)
     const rows = await dbhelper.get(query);
-    const result = await groupBy(rows,'associateId')
+    const result = await groupBy(rows,'associateName')
     
     const response = {
-        Associates : result
+        Associate : result
     }
     res.send(response)
 }
@@ -19,12 +19,13 @@ async function groupBy(arr,col){
     return arr.reduce((prev,curr)=>{
         const key =curr[col];
         if(!prev[key]){
-            prev[key]={AssociateName:null,
-                SpecilizationName:[]
+            prev={
+                SpecilizationName:[],
             }
         }
-        prev[key].SpecilizationName.push(curr.specilizationName)
-        prev[key].AssociateName=curr.associateName
+        prev.SpecilizationName.push(curr.specilizationName)
+        prev.AssociateName=curr.associateName
+        prev.AssociateId = curr.associateId
         return prev;
     },{})
 }
