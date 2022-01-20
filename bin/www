@@ -8,8 +8,21 @@ const mysql = require('mysql');
 var app = require('../app');
 var debug = require('debug')('sagunaassignment:server');
 var http = require('http');
-const { getConnctionPool } = require('../lib/dbHelper');
+var path = require('path');
+var logger = require('../lib/logHelper');
+/* loadconfig */
 
+var options = {
+    "path": path.join(process.cwd(), 'config')
+};
+var nconfig = require('nconfig')(options);
+console.log('environment',process.env.NODE_ENV) 
+var config = nconfig.loadSync('config-asm');
+global.config = config;
+//attache logger
+global.logger = logger;
+//  console.log('env',process.NODE_ENV);
+// console.log('config',config);
 /**
  * Get port from environment and store in Express.
  */
@@ -92,5 +105,7 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+    debug('Listening on ' + bind);
+   
+    logger.log('info',`started Listening on ${bind}`);
 }

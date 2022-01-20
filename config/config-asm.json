@@ -1,0 +1,11 @@
+{
+    "name": "AssociateManagmentSystem",
+    "local": {
+        "mysqldb": {
+            "host": "localhost",
+            "user": "root",
+            "password": "password",
+            "database": "asm"
+        }
+    }
+}

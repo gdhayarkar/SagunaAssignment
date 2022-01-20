@@ -3,9 +3,10 @@
 const {v4 : uuidv4} = require('uuid')
 const dbhelper = require('../../lib/dbHelper')
 const queryHelper = require('../../lib/queryHelper')
+const logger = require('../../lib/logHelper');
 module.exports = async(req,res)=>{
-    
-    let {associate:associateDetails} = req.body;
+  try{  
+    let {Associate:associateDetails} = req.body;
     associateDetails.associateId = uuidv4()
    
     const getQuery = await queryHelper.getQuery('getSpecilization',associateDetails.specilizations) 
@@ -18,5 +19,10 @@ module.exports = async(req,res)=>{
     const response = {
         Message : "Associate created successfully"
     }
+    
     res.send(response)
+    logger.log('info','associate created successfully')  
+    }catch(e){
+     logger.log('error','error while creating associate',e)   
+    }
 }
