@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "0484d0a4-a7a7-4748-8947-e64fc53775cb",
+		"name": "SagunaAssignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create Associate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Associate\":\r\n        {\"name\":\"Raghav\",\r\n        \"specilizations\":[\"Angular\"],\r\n        \"phone\":\"1232e32\",\r\n        \"address\":\"my address\"    \r\n        }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/associates/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"associates",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Associate",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Associate\":\r\n        {\"name\":\"Ganesh\",\r\n        \"specilizations\":[\"Angular\"],\r\n        \"phone\":\"123456\",\r\n        \"address\":\"my address2\"    \r\n        }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/associates/update/aa426d23-908e-4eda-8e59-35ec294bbce3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"associates",
+						"update",
+						"aa426d23-908e-4eda-8e59-35ec294bbce3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create Specialization",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Specialization\":\r\n        {\r\n        \"SpecializationName\":\"Angular3\"\r\n        }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/specialization/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"specialization",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Specilizations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/specialization/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"specialization",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAssociates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/associates/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"associates",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAssociate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/associates/aa426d23-908e-4eda-8e59-35ec294bbce3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"associates",
+						"aa426d23-908e-4eda-8e59-35ec294bbce3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteAssociate",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/associates/delete/1d163d6f-498b-4b3b-8983-addbdd1923c9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"associates",
+						"delete",
+						"1d163d6f-498b-4b3b-8983-addbdd1923c9"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
